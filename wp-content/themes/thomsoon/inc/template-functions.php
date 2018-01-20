@@ -42,3 +42,9 @@ if (is_file( get_template_directory() . '/inc/thomsoon-styles.php') )
  */
 if (is_file( get_template_directory() . '/inc/thomsoon-scripts.php') ) 
 	require get_template_directory() . '/inc/thomsoon-scripts.php';
+
+/**
+ * Require Add Items in Admin Menu
+ */
+if (is_file( get_template_directory() . '/inc/thomsoon-admin-menu.php') ) 
+	require get_template_directory() . '/inc/thomsoon-admin-menu.php';

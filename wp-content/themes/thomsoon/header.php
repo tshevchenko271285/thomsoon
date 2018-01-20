@@ -16,41 +16,54 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-
 	<?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'thomsoon' ); ?></a>
+<!--Preloader-->
+<div class="preloader" id="preloader">
+    <div class="item">
+      <div class="spinner">
+      </div>
+    </div>
+</div>
+<div class="opacity-nav">
+    <div class="menu-index" id="buttons" style="z-index:999999">
+    <i class="fa  fa-close"></i>
+    </div>
+	<?php
+		wp_nav_menu( array(
+			'theme_location' => 'menu-1',
+			'menu_id'        => '',
+			'container'       => false,
+			'menu_class'      => 'menu-fullscreen',
+		) );
+	?>
+</div>
+  <!--Header-->
+<header id="fullscreen">
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+    <?php if ( has_custom_logo() ) : ?>
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+	<div class="logo" id="full">
+		<a class="ajax-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<?php the_custom_logo(); ?>
+		</a>
+	</div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'thomsoon' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+    <?php else : ?>
 
-	<div id="content" class="site-content">
+	<div class="logo" id="full">
+		<a class="ajax-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+			<?php bloginfo( 'name' ); ?>
+		</a>
+	</div>
+
+    <?php endif ?>
+      
+	<div class="menu-index" id="button">
+	<i class="fa fa-bars"></i>
+	</div>
+
+</header>
+
+<div class="clear"></div>
