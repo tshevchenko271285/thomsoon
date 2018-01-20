@@ -163,12 +163,17 @@ Typewriting init script
 
 function Typewriting() {
 
-
+if( !window['titleAnimate'] ) {
+  var titleAnimate = ['test text', 'pleace define the variable "titleAnimate" as Array' ];
+} else {
+  var titleAnimate = window['titleAnimate'];
+}
 $(document).ready(function(){
 	setTimeout( function(){
 		if($("#site-type").length) {
         $(".typewrite span").typed({
-            strings: ["show case ", "projects "],
+            strings: titleAnimate,
+            //strings: ["show case ", "projects "],
             typeSpeed: 100,
             backDelay: 500,
             loop: false,

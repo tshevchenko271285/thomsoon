@@ -437,7 +437,7 @@ HOME SIDEBAR
 
 .home-sidebar{
   top:0;
-  position:absolute;
+  position:fixed;
   width:33.3333%;
   right:0;
   height:100%;
@@ -543,7 +543,7 @@ li.grid-item{
   color:#000000;
   letter-spacing:1px;
   font-weight:900;
-  line-height:50px;
+  line-height:30px;
 }
 
 .grid-hover p{
@@ -554,11 +554,12 @@ li.grid-item{
   color:#686868;
   letter-spacing:1px;
   font-weight:400;
-  line-height:50px;
+  line-height:20px;
 }
 
 li.grid-item img{
   width:360px;
+  height: auto;
 }
 
 /*

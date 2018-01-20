@@ -48,3 +48,9 @@ if (is_file( get_template_directory() . '/inc/thomsoon-scripts.php') )
  */
 if (is_file( get_template_directory() . '/inc/thomsoon-admin-menu.php') ) 
 	require get_template_directory() . '/inc/thomsoon-admin-menu.php';
+
+/**
+ * Require Add Items in Admin Menu
+ */
+if (is_file( get_template_directory() . '/inc/thomsoon-route.php') ) 
+	require get_template_directory() . '/inc/thomsoon-route.php';
