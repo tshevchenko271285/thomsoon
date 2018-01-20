@@ -30,3 +30,15 @@ function thomsoon_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'thomsoon_pingback_header' );
+
+/**
+ * Require styles
+ */
+if (is_file( get_template_directory() . '/inc/thomsoon-styles.php') ) 
+	require get_template_directory() . '/inc/thomsoon-styles.php';
+
+/**
+ * Require scripts
+ */
+if (is_file( get_template_directory() . '/inc/thomsoon-scripts.php') ) 
+	require get_template_directory() . '/inc/thomsoon-scripts.php';
