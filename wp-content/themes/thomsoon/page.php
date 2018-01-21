@@ -11,28 +11,35 @@
  *
  * @package thomsoon
  */
-
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<!--Content-->
 
-			<?php
-			while ( have_posts() ) : the_post();
+<div class="content" id="ajax-content">
 
-				get_template_part( 'template-parts/content', 'page' );
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+<?php 
 
-			endwhile; // End of the loop.
-			?>
+while ( have_posts() ) : the_post();
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+        // check if the flexible content field has rows of data
+        if( have_rows('page') ):
+        	
+             // loop through the rows of data
+            while ( have_rows('page') ) : the_row();
 
+				thomsoon_route( get_row_layout() );
+
+            endwhile;
+
+        else :
+
+            // no layouts found
+
+        endif;
+endwhile; // End of the loop.
+
+?>
+</div>
 <?php
-get_sidebar();
 get_footer();

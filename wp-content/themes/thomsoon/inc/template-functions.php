@@ -50,7 +50,12 @@ if (is_file( get_template_directory() . '/inc/thomsoon-admin-menu.php') )
 	require get_template_directory() . '/inc/thomsoon-admin-menu.php';
 
 /**
- * Require Add Items in Admin Menu
+ * Require Add Function Routing 
  */
 if (is_file( get_template_directory() . '/inc/thomsoon-route.php') ) 
 	require get_template_directory() . '/inc/thomsoon-route.php';
+/**
+ * Require Function Ajax Loading Portfolio
+ */
+if (is_file( get_template_directory() . '/inc/thomsoon-portfolio-ajax.php') ) 
+	require get_template_directory() . '/inc/thomsoon-portfolio-ajax.php';

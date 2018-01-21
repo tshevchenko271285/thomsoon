@@ -43,22 +43,8 @@ get_header(); ?>
         			?>
         			<!-- start pagination -->
 					 <div class="prev-next">
-
-						<?php if ( isset(get_previous_post()->guid) ): ?>
-							<div class="prev-button"><a class="ajax-link" href="<?php echo get_previous_post()->guid; ?>">Previous work</a></div>
-
-						<?php else : ?>
-							<div class="prev-button"><a class="ajax-link" style="opacity: 0.5">Previous work</a></div>
-						<?php endif ?>		
-
-
-						<?php if ( isset(get_next_post()->guid) ): ?>
-							<div class="next-button"><a class="ajax-link" href="<?php echo get_next_post()->guid; ?>" >Next work</a>
-
-						<?php else : ?>
-						<div class="next-button"><a class="ajax-link" style="opacity: 0.5">Next work</a>
-						<?php endif ?>
-						
+						<?php previous_post_link('<div class="prev-button">%link</div>', 'Previous work'); ?>
+						<?php next_post_link('<div class="next-button">%link</div>', 'Next work'); ?>		
 					</div>
 					<!-- end pagination -->
 				</div>

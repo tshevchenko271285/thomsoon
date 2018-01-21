@@ -1,6 +1,6 @@
 <?php 
 /**
- * Template Name: Projects
+ * Template Name: THOMSOON
  */
 get_header(); ?>
 
@@ -32,6 +32,5 @@ endwhile; // End of the loop.
 
 ?>
 </div>
-<?php// get_sidebar(); ?>
 <?php
 get_footer();

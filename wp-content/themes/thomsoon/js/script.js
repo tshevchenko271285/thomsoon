@@ -84,7 +84,7 @@ function Website() {
 		backgroundmenu();
 		setTimeout(function(){
 			$(".preloader").fadeOut(500);							
-		},2000);
+		},500);
 		setTimeout(function(){
 			$('header').fadeIn();							
 		},500);
@@ -101,6 +101,7 @@ function CheckScripts() {
     preloaderCheck();
     Typewriting();
     sidebarhero();
+    loadMorePortfolios();
   });
 
 }
@@ -252,6 +253,40 @@ Functions Show / Hide Main Menu
     $( ".opacity-nav" ).fadeToggle( "slow", "linear" );
   // Animation complete.
   });
+
+/*-------------------------------------------
+Functions Load Portfolios
+---------------------------------------------*/
+function loadMorePortfolios(){
+  if( $('#loadMore').length ) {
+    $('#loadMore').on('click', function(){
+
+      var loadStep = $('#loadMore').attr('data-load');
+      var offset = $('.portfolio-grid').children().length;
+
+      $.ajax({
+
+        type: "POST",
+        url: thomsoonVar.ajaxUrl,
+        data: { action: "get_portfolio", offset, loadStep },
+
+      }).done(function(data) {
+
+        var $items = $(data);
+        var $grid = $('.portfolio-grid');
+
+        $grid.append( $items )
+        .masonry( 'appended', $items );
+
+        $grid.imagesLoaded().progress( function() {
+          $grid.masonry('layout');
+        });
+        
+      });
+    });
+  }
+}
+
 
 
 })//End
